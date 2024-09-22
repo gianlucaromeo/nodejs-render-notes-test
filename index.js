@@ -6,6 +6,12 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+// Whenever Express gets an HTTP GET request it will first check if the dist 
+// directory contains a file corresponding to the request's address. If a 
+// correct file is found, Express will return it.
+app.use(express.static('dist'))
+
+
 let notes = [
     {
         id: "1",
